@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { LaserEyesProvider, MAINNET } from '@omnisat/lasereyes';
+import WalletConnectModal from './components/WalletConnectModal';
+import { Buffer } from 'buffer';
+window.Buffer = Buffer;
+
+// Make Buffer globally available in the browser environment
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LaserEyesProvider config={{ network: MAINNET }}>
+      <div className="App">
+        <h1>Laser Eyes Wallet Connect</h1>
+        <WalletConnectModal />
+      </div>
+    </LaserEyesProvider>
   );
 }
 
